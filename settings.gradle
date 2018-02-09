@@ -1,0 +1,6 @@
+rootProject.name = 'knote'
+
+include 'knote-jvm', 'knote-js'
+include 'common'
+include 'common'
+
