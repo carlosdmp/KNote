@@ -18,6 +18,8 @@ local.properties
 keystore.jks
 android/mobile/release/*
 
+projectFilesBackup/*
+
 .DS_Store
 .externalNativeBuild
 .database
