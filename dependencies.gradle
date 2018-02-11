@@ -22,7 +22,7 @@ ext {
 
     // Android
     android_version = '27.0.1'
-    anko_version = '0.10.1'
+    ext.anko_version='0.10.4'
     glide_version = '3.7.0'
     firebase_version = '11.6.2'
     preference_holder_version = '1.51'
