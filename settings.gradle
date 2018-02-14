@@ -1,6 +1,7 @@
-include ':knote-android-app'
+include ':android', ':android:knote-app'
 rootProject.name = 'knote'
-
-include 'knote-jvm', 'knote-js'
 include 'common'
+include 'common-client'
+include 'client-jvm'
+include 'common-jvm'
 
