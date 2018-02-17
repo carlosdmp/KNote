@@ -19,8 +19,12 @@ repositories {
 }
 
 dependencies {
-    compile project(":common-client")
+    expectedBy project(":common-client")
     compile project(":common-jvm")
+
+    implementation dep.kotlin_stdlib_jre8
+    implementation dep.retrofit
+
     compile "org.jetbrains.kotlin:kotlin-stdlib-common:$kotlin_version"
 }
 

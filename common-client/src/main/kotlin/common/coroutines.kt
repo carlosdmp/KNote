@@ -1,5 +1,5 @@
-package org.kotlinacademy.common
+package common
 
-//expect fun launchUI(block: suspend () -> Unit): Cancellable
+expect fun launchUI(block: suspend () -> Unit): Cancellable
 
-//expect suspend fun delay(time: Long)
+expect suspend fun delay(time: Long)
