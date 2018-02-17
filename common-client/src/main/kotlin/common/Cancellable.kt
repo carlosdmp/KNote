@@ -1,4 +1,4 @@
-package org.kotlinacademy.common
+package common
 
 interface Cancellable {
     fun cancel() {}
