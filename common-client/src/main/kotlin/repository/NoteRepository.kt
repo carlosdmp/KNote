@@ -7,6 +7,6 @@ interface NoteRepository {
     suspend fun getNotes(): List<Note>
 
     companion object : Provider<NoteRepository>() {
-        override fun create(): NoteRepository = RepositoryProvider.getNewsRepository()
+        override fun create(): NoteRepository = RepositoryProvider.getNoteRepository()
     }
 }
