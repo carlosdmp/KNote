@@ -4,4 +4,5 @@ include 'common'
 include 'common-client'
 include 'client-jvm'
 include 'common-jvm'
+include 'backend'
 
