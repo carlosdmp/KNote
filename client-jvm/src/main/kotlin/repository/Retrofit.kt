@@ -1,5 +1,6 @@
 package repository
 
+import api.RetrofitCallAdapterFactory
 import constants.api.Api
 import okhttp3.Interceptor
 import okhttp3.logging.HttpLoggingInterceptor
@@ -13,8 +14,8 @@ val retrofit by lazy { makeRetrofit() }
 private fun makeRetrofit(vararg interceptors: okhttp3.Interceptor) = retrofit2.Retrofit.Builder()
         .baseUrl(Api.baseUrl)
         .client(makeHttpClient(interceptors))
-        .addConverterFactory(ScalarsConverterFactory.create())
         .addConverterFactory(GsonConverterFactory.create(gson))
+//        .addCallAdapterFactory(RetrofitCallAdapterFactory())
         .build()!!
 
 private fun makeHttpClient(interceptors: Array<out okhttp3.Interceptor>) = okhttp3.OkHttpClient.Builder()

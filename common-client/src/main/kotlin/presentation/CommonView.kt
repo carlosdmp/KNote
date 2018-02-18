@@ -1,6 +1,6 @@
 package presentation
 
-interface CommonView{
+interface CommonView {
     fun logError(error: Throwable)
-    fun showError(error: Throwable)
+    fun showError(error: ViewError)
 }
