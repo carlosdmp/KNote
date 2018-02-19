@@ -17,6 +17,7 @@ ext {
             glide_version  : "3.8.0",
             timber_version : "4.5.1",
             room_version   : "1.0.0",
+            anko_version   : "0.10.4"
     ]
 
 
@@ -58,6 +59,17 @@ ext {
                                           "io.arrow-kt:arrow-effects-rx2:$arrow_version",
                                           "io.arrow-kt:arrow-effects-kotlinx-coroutines:$arrow_version",
                                           "io.arrow-kt:arrow-optics:$arrow_version"],
+
+            anko                       : "org.jetbrains.anko:anko:$android.anko_version",
+
+            //ANDROID SUPPORT
+            support                    : [
+                    "com.android.support:appcompat-v7:$android.support_version",
+                    "com.android.support:recyclerview-v7:$android.support_version",
+                    "org.jetbrains.anko:anko-sdk15:$android.anko_version",
+                    "org.jetbrains.anko:anko-appcompat-v7:$android.anko_version",
+                    "org.jetbrains.anko:anko-recyclerview-v7:$android.anko_version",
+            ],
             //ARROW: ANNOTATIONS
             arrow_kapt                 : "io.arrow-kt:arrow-annotations-processor:$arrow_version",
 

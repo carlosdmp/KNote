@@ -67,7 +67,9 @@ dependencies {
     implementation dep.arrow
     kapt dep.arrow_kapt
     implementation 'org.jetbrains.anko:anko:0.10.4'
+    implementation "com.android.support:recyclerview-v7:27.0.2"
     implementation dep.android_arch
+    implementation 'com.android.support:design:27.0.2'
     kapt dep.android_arch_kapt
     implementation dep.room
     kapt dep.room_kapt
