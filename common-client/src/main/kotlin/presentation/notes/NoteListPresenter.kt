@@ -1,9 +1,7 @@
 package presentation.notes
 
-import kotlinx.coroutines.experimental.async
 import presentation.CommonPresenter
 import presentation.ViewError
-import presentation.notes.NoteListView
 import repository.NoteRepository
 
 class NoteListPresenter(view: NoteListView) : CommonPresenter<NoteListView>(view) {
