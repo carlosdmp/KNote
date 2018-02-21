@@ -39,6 +39,7 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-webflux')
     compile("org.jetbrains.kotlin:kotlin-reflect")
     runtime('org.springframework.boot:spring-boot-devtools')
+    runtime "com.fasterxml.jackson.module:jackson-module-kotlin"
     testCompile('org.springframework.boot:spring-boot-starter-test')
     testCompile('io.projectreactor:reactor-test')
     testCompile "junit:junit:4.12"

@@ -3,7 +3,7 @@ package constants.api
 
 
 object Endpoints{
-    const val noteEndpoint = "notes"
+    const val noteEndpoint = "/notes"
 
     /**
      *  GET: returns a list of all notes
@@ -11,7 +11,7 @@ object Endpoints{
      *      Error:      400 Bad request
      *                  500 Internal error
      */
-    const val getAllNotes = "get"
+    const val getAllNotes = "/all"
 
     /**
      *  POST: create a new note, returns note id
@@ -21,7 +21,7 @@ object Endpoints{
      *                  500 Internal error
      *
      */
-    const val createNote = "add"
+    const val createNote = "/add"
 
     /**
      *  getNote + {id}
@@ -31,7 +31,7 @@ object Endpoints{
      *                  404 Not found
      *                  500 Internal error
      */
-    const val getNote = "get/"
+    const val getNote = "/get"
 
     /**
      *  updateNote + {id}
@@ -41,7 +41,7 @@ object Endpoints{
      *                  404 Not found
      *                  500 Internal error
      */
-    const val updateNote = "add/"
+    const val updateNote = "/add"
 
     /**
      *  removeNote + {id}
@@ -51,5 +51,5 @@ object Endpoints{
      *                  404 Not found
      *                  500 Internal error
      */
-    const val removeNote = "remove/"
+    const val deleteNote = "remove/"
 }

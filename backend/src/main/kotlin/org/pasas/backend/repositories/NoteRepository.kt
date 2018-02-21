@@ -1,7 +1,9 @@
 package org.pasas.backend.repositories
 
-import data.Note
-import org.springframework.data.mongodb.repository.ReactiveMongoRepository
-import org.springframework.stereotype.Repository
+import org.pasas.backend.entities.Note
+import org.springframework.data.mongodb.core.ReactiveMongoTemplate
 
-@Repository interface NoteRepository : ReactiveMongoRepository<Note, Long>
+class NoteRepository(private val template: ReactiveMongoTemplate){
+    fun findAll() = template.findAll(Note::class.java)
+    fun findById(id : Long) = template.findById(id, Note::class.java)
+}
