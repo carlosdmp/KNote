@@ -3,32 +3,21 @@ version '0.1'
 
 apply plugin: 'java'
 apply plugin: 'kotlin-platform-jvm'
-
-
-buildscript {
-
-    repositories {
-        mavenCentral()
+apply plugin: 'kotlin-kapt'
+dependencies {
+    repositories{
+        jcenter()
     }
-    dependencies {
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-    }
+    expectedBy project (":common")
+    implementation dep.kotlin_stdlib_jre8
+    implementation dep.kotlin_stdlib_jdk8
+    implementation dep.arrow
+    kapt dep.arrow_kapt
+    implementation dep.gson
+
 }
-
-
 
 sourceCompatibility = 1.8
-
-repositories {
-    mavenCentral()
-}
-
-dependencies {
-    expectedBy project (":common")
-    compile "org.jetbrains.kotlin:kotlin-stdlib-common:$kotlin_version"
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
-    implementation dep.gson
-}
 
 compileKotlin {
     kotlinOptions.jvmTarget = "1.8"

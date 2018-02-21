@@ -1,22 +1,9 @@
-version 'unspecified'
+version '0.1'
 group 'org.pasas'
 apply plugin: 'kotlin-platform-common'
-
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-    }
-}
-
-
-
-repositories {
-    mavenCentral()
-}
+apply plugin: 'kotlin-kapt'
 
 dependencies {
-    compile dep.kotlin_stdlib_common
+    implementation dep.kotlin_stdlib_common
+    implementation dep.arrow
 }
