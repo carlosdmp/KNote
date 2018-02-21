@@ -51,4 +51,5 @@ object Endpoints{
      *                  404 Not found
      *                  500 Internal error
      */
+    const val removeNote = "remove/"
 }
