@@ -1,23 +1,17 @@
-apply plugin: 'kotlin-platform-common'
-
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-    }
-}
-
 group 'org.pasas'
 version '0.1'
 
-
-repositories {
-    mavenCentral()
-}
+apply plugin: 'kotlin-platform-common'
 
 dependencies {
+    allprojects {
+        repositories {
+            jcenter()
+            maven { url "http://dl.bintray.com/kotlin/kotlin-dev" }
+        }
+    }
     compile project(':common')
-    compile "org.jetbrains.kotlin:kotlin-stdlib-common:$kotlin_version"
+    implementation dep.kotlin_stdlib_common
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:0.21.2'
+    implementation dep.arrow
 }

@@ -1,18 +1,38 @@
+apply from: 'dependencies.gradle'
+
 allprojects {
     buildscript {
-        ext.kotlin_version = '1.2.21'
-        ext.serialization_version = '0.3'
         repositories {
             mavenCentral()
             maven { url 'http://dl.bintray.com/kotlin/kotlin-eap-1.2' }
             maven { url "https://kotlin.bintray.com/kotlinx" }
             maven { url 'https://maven.google.com' }
             maven { url "https://plugins.gradle.org/m2/" }
+            maven { url "https://bintray.com/takhion/maven/kotlin-metadata"}
             jcenter()
+            google()
+        }
+        dependencies {
+            classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         }
     }
-
+    repositories {
+        mavenCentral()
+        google()
+    }
+}
+buildscript{
+    ext.kotlin_version = '1.2.21'
+    repositories {
+        mavenCentral()
+        maven { url 'http://dl.bintray.com/kotlin/kotlin-eap-1.2' }
+        maven { url "https://kotlin.bintray.com/kotlinx" }
+        maven { url 'https://maven.google.com' }
+        maven { url "https://plugins.gradle.org/m2/" }
+        jcenter()
+        google()
+    }
 }
 
-apply from: 'dependencies.gradle'
+
 

@@ -1,18 +1,31 @@
 ext {
 
-    kotlin_version = '1.2.21'
+    kotlin_version = "1.2.21"
+    serialization_version = "0.3"
+    arrow_version = "0.6.1"
+
     // JVM
-    retrofit_version = '2.3.0'
-    coroutines_retrofit_version = '0.8.2'
-    okhttp_version = '3.6.0'
-    gson_version = '2.8.2'
-    junit_version = '4.12'
+    retrofit_version = "2.3.0"
+    coroutines_retrofit_version = "0.8.2"
+    okhttp_version = "3.6.0"
+    gson_version = "2.8.2"
+    junit_version = "4.12"
+    retrofit_coroutines_adapter = "1.0.0"
+    android = [
+            arch_version   : "1.1.0",
+            support_version: "26.1.0",
+            glide_version  : "3.8.0",
+            timber_version : "4.5.1",
+            room_version   : "1.0.0",
+            anko_version   : "0.10.4"
+    ]
 
 
     dep = [
             kotlin_stdlib_common       : "org.jetbrains.kotlin:kotlin-stdlib-common:$kotlin_version",
             kotlin_stdlib_jre7         : "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version",
             kotlin_stdlib_jre8         : "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlin_version",
+            kotlin_stdlib_jdk8         : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version",
             kotlin_stdlib_js           : "org.jetbrains.kotlin:kotlin-stdlib-js:$kotlin_version",
             kotlin_test_common         : ["org.jetbrains.kotlin:kotlin-test-common:$kotlin_version",
                                           "org.jetbrains.kotlin:kotlin-test-annotations-common:$kotlin_version"],
@@ -24,11 +37,55 @@ ext {
                                           "com.squareup.okhttp3:okhttp:$okhttp_version",
                                           "com.squareup.okhttp3:logging-interceptor:$okhttp_version",
                                           "ru.gildor.coroutines:kotlin-coroutines-retrofit:$coroutines_retrofit_version"],
+
+            //GSON
             gson                       : "com.google.code.gson:gson:$gson_version",
+
+            //JUNIT
             junit                      : "junit:junit:$junit_version",
             kotlin_junit               : ["org.jetbrains.kotlin:kotlin-test:$kotlin_version",
                                           "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"],
             kotlin_serialization_jvm   : "org.jetbrains.kotlinx:kotlinx-serialization-runtime:$serialization_version",
 
+            //ARROW
+            arrow                      : ["io.arrow-kt:arrow-core:$arrow_version",
+                                          "io.arrow-kt:arrow-typeclasses:$arrow_version",
+                                          "io.arrow-kt:arrow-data:$arrow_version",
+                                          "io.arrow-kt:arrow-instances:$arrow_version",
+                                          "io.arrow-kt:arrow-syntax:$arrow_version",
+                                          "io.arrow-kt:arrow-free:$arrow_version",
+                                          "io.arrow-kt:arrow-mtl:$arrow_version",
+                                          "io.arrow-kt:arrow-effects:$arrow_version",
+                                          "io.arrow-kt:arrow-effects-rx2:$arrow_version",
+                                          "io.arrow-kt:arrow-effects-kotlinx-coroutines:$arrow_version",
+                                          "io.arrow-kt:arrow-optics:$arrow_version"],
+
+            anko                       : "org.jetbrains.anko:anko:$android.anko_version",
+
+            //ANDROID SUPPORT
+            support                    : [
+                    "com.android.support:appcompat-v7:$android.support_version",
+                    "com.android.support:recyclerview-v7:$android.support_version",
+                    "org.jetbrains.anko:anko-sdk15:$android.anko_version",
+                    "org.jetbrains.anko:anko-appcompat-v7:$android.anko_version",
+                    "org.jetbrains.anko:anko-recyclerview-v7:$android.anko_version",
+            ],
+            //ARROW: ANNOTATIONS
+            arrow_kapt                 : "io.arrow-kt:arrow-annotations-processor:$arrow_version",
+
+            //ANDROID ARCH: VIEWMODEL AND LIVEDATA
+            android_arch               : "android.arch.lifecycle:extensions:$android.arch_version",
+
+            //ANDROID ARCH: ANNOTATIONS
+            android_arch_kapt          : "android.arch.lifecycle:common-java8:$android.arch_version",
+
+            //ROOM:
+            room                       : "android.arch.persistence.room:runtime:$android.room_version",
+
+            //ROOM: ANNOTATIONS
+            room_kapt                  : "android.arch.persistence.room:compiler:$android.room_version",
+
+            //COROUTINES RETROFIT ADAPTER
+            coroutines_retrofit_adapter: "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-experimental-adapter:$retrofit_coroutines_adapter"
     ]
 }

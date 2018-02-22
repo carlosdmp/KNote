@@ -2,6 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+
 android {
     compileSdkVersion 27
     buildToolsVersion "27.0.3"
@@ -41,22 +42,37 @@ android {
         exclude 'META-INF/main.kotlin_module'
     }
 
+    defaultConfig {
+        multiDexEnabled true
+    }
+
+
 }
 
 
 
 dependencies {
     repositories {
-        maven { url 'https://maven.google.com' }
-        maven { url "http://dl.bintray.com/kotlin/kotlin-eap-1.2" }
         jcenter()
+        google()
+        maven {
+            url "https://maven.google.com"
+        }
     }
-
-    implementation project (":client-jvm")
+    implementation project(":client-jvm")
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
     implementation 'com.android.support:appcompat-v7:27.0.2'
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    implementation dep.arrow
+    kapt dep.arrow_kapt
+    implementation 'org.jetbrains.anko:anko:0.10.4'
+    implementation "com.android.support:recyclerview-v7:27.0.2"
+    implementation dep.android_arch
+    implementation 'com.android.support:design:27.0.2'
+    kapt dep.android_arch_kapt
+    implementation dep.room
+    kapt dep.room_kapt
 
 }
 kotlin {
@@ -72,6 +88,5 @@ androidExtensions {
 buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:3.0.1'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }

@@ -4,28 +4,20 @@ version '0.1'
 apply plugin: 'java'
 apply plugin: 'kotlin-platform-jvm'
 
-
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-    }
-}
-
-repositories {
-    mavenCentral()
-}
-
 dependencies {
+    repositories{
+        maven { url "http://dl.bintray.com/kotlin/kotlin-dev" }
+        jcenter()
+    }
     expectedBy project(":common-client")
     compile project(":common-jvm")
 
     implementation dep.kotlin_stdlib_jre8
     implementation dep.retrofit
+    implementation dep.coroutines_retrofit_adapter
+    implementation 'org.jetbrains.anko:anko:0.10.4'
+    implementation dep.arrow
 
-    compile "org.jetbrains.kotlin:kotlin-stdlib-common:$kotlin_version"
 }
 
 
