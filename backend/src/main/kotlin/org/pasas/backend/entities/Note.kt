@@ -6,7 +6,7 @@ import org.springframework.data.mongodb.core.mapping.Document
 import reactor.util.annotation.NonNull
 import java.time.LocalDateTime
 
-@Document
+@Document(collection = "note")
 data class Note(
         @Id var id: String? = null,
         @NonNull var title: String? = null,

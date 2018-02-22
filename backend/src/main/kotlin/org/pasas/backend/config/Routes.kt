@@ -12,11 +12,11 @@ class Routes(val noteHandler: NoteHandler) {
             Endpoints.noteEndpoint.nest {
                 accept(MediaType.APPLICATION_JSON).nest {
                     GET(Endpoints.getAllNotes, noteHandler::all)
-                    GET(Endpoints.getNote + "{id}", noteHandler::get)
+                    GET("${Endpoints.getNoteTemplate}", noteHandler::get)
                 }
                 POST(Endpoints.createNote, noteHandler::create)
-                PUT(Endpoints.updateNote, noteHandler::update)
-                DELETE(Endpoints.deleteNote, noteHandler::delete)
+                PUT("${Endpoints.updateNoteTemplate}", noteHandler::update)
+                DELETE("${Endpoints.deleteNoteTemplate}", noteHandler::delete)
             }
         }
     }

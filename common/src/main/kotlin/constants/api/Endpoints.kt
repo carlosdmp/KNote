@@ -11,7 +11,7 @@ object Endpoints{
      *      Error:      400 Bad request
      *                  500 Internal error
      */
-    const val getAllNotes = "/all"
+    const val getAllNotes = ""
 
     /**
      *  POST: create a new note, returns note id
@@ -21,35 +21,35 @@ object Endpoints{
      *                  500 Internal error
      *
      */
-    const val createNote = "/add"
+    const val createNote = ""
 
     /**
-     *  getNote + {id}
      *  GET: returns a note
      *      Success:    200 OK
      *      Error:      400 Bad request
      *                  404 Not found
      *                  500 Internal error
      */
-    const val getNote = "/get"
+    fun getNote(id:String) : String = "/$id"
+    const val getNoteTemplate = "/{id}"
 
     /**
-     *  updateNote + {id}
      *  PUT: updates a note
      *      Success:    204 No content
      *      Error:      400 Bad request
      *                  404 Not found
      *                  500 Internal error
      */
-    const val updateNote = "/add"
+    fun updateNote(id:String) : String = "/$id"
+    const val updateNoteTemplate = "/{id}"
 
     /**
-     *  removeNote + {id}
      *  DELETE: removes a note
-     *      Success:    200 OK
+     *      Success:    204 No content
      *      Error:      400 Bad request
      *                  404 Not found
      *                  500 Internal error
      */
-    const val deleteNote = "remove/"
+    fun deleteNote(id:String) : String = "/$id"
+    const val deleteNoteTemplate = "/{id}"
 }
