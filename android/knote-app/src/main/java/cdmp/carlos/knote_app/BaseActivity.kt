@@ -25,6 +25,6 @@ open class BaseActivity : AppCompatActivity(), CommonView {
     }
 
     override fun showError(error: ViewError) {
-
+        println(error)
     }
 }

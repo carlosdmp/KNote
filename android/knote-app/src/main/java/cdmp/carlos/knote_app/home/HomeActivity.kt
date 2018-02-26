@@ -15,8 +15,18 @@ import presentation.notes.NoteListView
 
 class HomeActivity : BaseActivity(), NoteListView {
 
+    val adapter = SimpleRecyclerViewAdapter<Note>(viewHolderLayout = R.layout.holder_note,
+            holderInitializer = { item, view ->
+                view.findViewById<TextView>(R.id.text_view).text = item.title
+            },
+            itemDiffer = object : ListDiffer.ItemDiffer<Note> {
+                override fun areItemsTheSame(first: Note, second: Note) = first.title == second.title
+                override fun areContentsTheSame(first: Note, second: Note) = first == second
+            })
+
     override fun showNoteList(notes: List<Note>) {
         notes.forEach { print(it) }
+        adapter.update(notes.toMutableList())
     }
 
     private val noteListPresenter by presenter { NoteListPresenter(this) }
@@ -24,18 +34,10 @@ class HomeActivity : BaseActivity(), NoteListView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home);
+
         my_recycler_view.layoutManager = LinearLayoutManager(this)
-        val adapter = SimpleRecyclerViewAdapter<Note>(mutableListOf<Note>(Note("Hola"), Note("Kotlin")), R.layout.holder_note,
-                { item, view ->
-                    view.findViewById<TextView>(R.id.text_view).text = item.title
-                },
-                itemDiffer = object : ListDiffer.ItemDiffer<Note> {
-                    override fun areItemsTheSame(first: Note, second: Note) = first.title == second.title
-                    override fun areContentsTheSame(first: Note, second: Note) = first == second
-                })
-
         my_recycler_view.adapter = adapter
+        adapter.update(mutableListOf<Note>(Note("Adiosss"), Note("Java")))
 
-        adapter.update(mutableListOf<Note>(Note("Adios"), Note("Java")))
     }
 }

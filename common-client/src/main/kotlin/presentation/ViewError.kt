@@ -1,3 +1,3 @@
 package presentation
 
-class ViewError(val message: String)
+data class ViewError(val message: String)

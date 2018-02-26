@@ -7,13 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 
 
-class MultipleRecyclerViewAdapter<T>(@LayoutRes private val viewHolderLayout: Int,
+class MultipleRecyclerViewAdapter<T>(private val layoutSwitch: ((viewType: Int) -> Int),
                                      private val items: List<T> = emptyList(),
                                      private val viewTypeSwitch: ((item: T, position: Int) -> Int),
                                      private val holderInitializer: (item: T, view: View, viewType: Int) -> Unit)
     : RecyclerView.Adapter<MultipleRecyclerViewAdapter.ViewHolder<T>>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = ViewHolder<T>(LayoutInflater.from(parent.context).inflate(viewHolderLayout, parent, false), viewType)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = ViewHolder<T>(LayoutInflater.from(parent.context).inflate(layoutSwitch.invoke(viewType), parent, false), viewType)
 
     override fun getItemViewType(position: Int) = viewTypeSwitch(items[position], position)
 

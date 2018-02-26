@@ -89,3 +89,4 @@ ext {
             coroutines_retrofit_adapter: "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-experimental-adapter:$retrofit_coroutines_adapter"
     ]
 }
+

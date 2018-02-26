@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import cdmp.carlos.knote_app.adapter.differ.ListDiffer
 
-class SimpleRecyclerViewAdapter<T>(private var items: MutableList<T> = mutableListOf<T>(),
+class SimpleRecyclerViewAdapter<T>(private var items: MutableList<T> = mutableListOf(),
                                    @LayoutRes private val viewHolderLayout: Int,
                                    private val holderInitializer: (item: T, view: View) -> Unit,
                                    private val itemDiffer: ListDiffer.ItemDiffer<T>? = null)
