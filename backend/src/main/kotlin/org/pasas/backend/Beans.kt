@@ -48,7 +48,7 @@ fun beans() = beans {
         ReactiveMongoTemplate(
                 SimpleReactiveMongoDatabaseFactory(
                         ConnectionString(
-                                "mongodb://admin:admin@ds237848.mlab.com:37848/knote"
+                                ""
                         )
                 )
         )
