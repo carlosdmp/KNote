@@ -2,13 +2,29 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/card_dw"
     android:orientation="vertical"
-    android:background="@drawable/card_dw">
+    android:paddingLeft="30dp"
+    android:paddingRight="30dp"
+    android:paddingTop="20dp"
+    android:paddingBottom="16dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp">
 
     <TextView
-        android:id="@+id/text_view"
-        android:text="HOLL"
+        android:id="@+id/title_text"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:layout_marginBottom="10dp"
+        tools:text="TITLE"/>
+
+    <TextView
+        android:id="@+id/content_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="body"
+        android:layout_marginBottom="10dp"/>
 
 </LinearLayout>

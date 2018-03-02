@@ -16,17 +16,22 @@ class NoteListPresenter(view: NoteListView) : CommonPresenter<NoteListView>(view
 
     private fun onNotesRequested() {
         jobs += launchUI {
-            repository.requestNotes { notes ->
-                doInView {
-                    notes.handle(
-                            onSuccess = {
-                                showNoteList(it)
-                            },
-                            onFailure = {
-                                showError(ViewError(it.message))
-                            })
-                }
-            }
+           try {
+               repository.requestNotes { notes ->
+                   doInView {
+                       notes.handle(
+                               onSuccess = {
+                                   showNoteList(it)
+                               },
+                               onFailure = {
+                                   showError(ViewError(it.message))
+                               })
+                   }
+               }
+           }catch (e: Throwable){
+               println(e)
+           }
+
         }
 
     }

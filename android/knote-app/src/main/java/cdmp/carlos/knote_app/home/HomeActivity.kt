@@ -17,11 +17,8 @@ class HomeActivity : BaseActivity(), NoteListView {
 
     val adapter = SimpleRecyclerViewAdapter<Note>(viewHolderLayout = R.layout.holder_note,
             holderInitializer = { item, view ->
-                view.findViewById<TextView>(R.id.text_view).text = item.title
-            },
-            itemDiffer = object : ListDiffer.ItemDiffer<Note> {
-                override fun areItemsTheSame(first: Note, second: Note) = first.title == second.title
-                override fun areContentsTheSame(first: Note, second: Note) = first == second
+                view.findViewById<TextView>(R.id.title_text).text = item.title
+                view.findViewById<TextView>(R.id.content_text).text = item.body
             })
 
     override fun showNoteList(notes: List<Note>) {
@@ -33,11 +30,10 @@ class HomeActivity : BaseActivity(), NoteListView {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.activity_home)
 
         my_recycler_view.layoutManager = LinearLayoutManager(this)
         my_recycler_view.adapter = adapter
-        adapter.update(mutableListOf<Note>(Note("Adiosss"), Note("Java")))
 
     }
 }

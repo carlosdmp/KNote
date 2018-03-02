@@ -6,6 +6,7 @@ import arrow.data.Try
 import arrow.syntax.either.left
 import arrow.syntax.function.andThen
 import common.ApiResponse
+import constants.api.ClientEndpoints
 import constants.api.Endpoints
 import data.Note
 import kotlinx.coroutines.experimental.Deferred
@@ -20,9 +21,9 @@ import retrofit2.http.GET
 import ru.gildor.coroutines.retrofit.await
 import kotlin.coroutines.experimental.EmptyCoroutineContext.fold
 
-class NoteRepositoryImpl : NoteRepository() {
+class NoteRepositoryImpl : NoteRepository {
     interface Api {
-        @GET(Endpoints.noteEndpoint)
+        @GET(ClientEndpoints.clientNotes)
         fun getNotes(): Call<List<Note>>
     }
 

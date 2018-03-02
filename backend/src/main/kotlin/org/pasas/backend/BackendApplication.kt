@@ -1,7 +1,5 @@
 package org.pasas.backend
 
-import org.springframework.boot.autoconfigure.SpringBootApplication
-import org.springframework.boot.runApplication
 import org.springframework.context.support.GenericApplicationContext
 import org.springframework.http.server.reactive.HttpHandler
 import org.springframework.http.server.reactive.ReactorHttpHandlerAdapter

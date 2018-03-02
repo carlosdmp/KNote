@@ -1,6 +1,6 @@
 package constants.api
 
 object Api {
-    val baseUrl = "http://localhost"
-    val api = "/api"
+    const val baseUrl = "http://localhost:8080/"
+    const val api = "/api"
 }
